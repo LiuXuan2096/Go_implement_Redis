@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go_redis/config"
 	"go_redis/lib/logger"
+	"go_redis/resp/handler"
 	"go_redis/tcp"
 	"os"
 )
@@ -40,7 +41,7 @@ func main() {
 				config.Properties.Bind,
 				config.Properties.Port),
 		},
-		tcp.MakeHandler())
+		handler.MakeHandler())
 	if err != nil {
 		logger.Error(err)
 	}
